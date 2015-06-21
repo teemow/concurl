@@ -1,4 +1,4 @@
-FROM alpine
+FROM flynn/busybox
 
 ADD ./concurl /
 

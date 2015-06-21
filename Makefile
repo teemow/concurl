@@ -23,7 +23,7 @@ get-deps: .gobuild
 	mkdir -p $(PROJECT_PATH)
 	cd "$(PROJECT_PATH)" && ln -s ../../../.. $(PROJECT)
 
-$(BIN): $(SOURCE)
+$(BIN): $(SOURCE) VERSION
 	GOPATH=$(GOPATH) go build -a -ldflags "-X main.projectVersion $(VERSION) -X main.projectBuild $(COMMIT)" -o $(BIN)
 
 clean:
