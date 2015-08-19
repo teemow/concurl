@@ -43,19 +43,19 @@ func get(backend string) string {
 	req, err := http.NewRequest("GET", fmt.Sprintf("http://%s/", backend), nil)
 	if err != nil {
 		fmt.Printf("req %s", err)
-		os.Exit(1)
+		return ""
 	}
 
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		fmt.Printf("res %s", err)
-		os.Exit(1)
+		return ""
 	}
 
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
 		fmt.Printf("body %s", err)
-		os.Exit(1)
+		return ""
 	}
 
 	return string(body)
